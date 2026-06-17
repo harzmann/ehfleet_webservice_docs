@@ -1,4 +1,4 @@
-﻿# EHFleet Webservice Kundenportal
+﻿# FLEET Webservice Kundenportal
 
 Hier stellt EH Systemhaus das aktuelle Installationspaket für den EHFleet Webservice bereit.
 
@@ -10,13 +10,13 @@ Hier stellt EH Systemhaus das aktuelle Installationspaket für den EHFleet Webse
 | Feld | Wert |
 | --- | --- |
 | Version | 1.3.10.0 |
-| Build-Zeitpunkt | 2026-06-17T10:14:07Z |
-| Commit | [7e0b2ca4](https://github.com/harzmann/ehfleet_webservice/commit/7e0b2ca4aaa753fb12e0d4dafb0af8dff4211a56) |
-| Installationspaket | [EHFleet_Webservice_1.3.10.0_7e0b2ca4_Installation.zip](assets/downloads/EHFleet_Webservice_1.3.10.0_7e0b2ca4_Installation.zip) |
-| SHA256 | [EHFleet_Webservice_1.3.10.0_7e0b2ca4_Installation.zip.sha256](assets/downloads/EHFleet_Webservice_1.3.10.0_7e0b2ca4_Installation.zip.sha256) |
+| Build-Zeitpunkt | 2026-06-17T11:56:19Z |
+| Commit | [f62500cf](https://github.com/harzmann/ehfleet_webservice/commit/f62500cfc951d361a36a5b678245cd616c375673) |
+| Installationspaket | [EHFleet_Webservice_1.3.10.0_f62500cf_Installation.zip](assets/downloads/EHFleet_Webservice_1.3.10.0_f62500cf_Installation.zip) |
+| SHA256 | [EHFleet_Webservice_1.3.10.0_f62500cf_Installation.zip.sha256](assets/downloads/EHFleet_Webservice_1.3.10.0_f62500cf_Installation.zip.sha256) |
 
 ## Download
 
-[Aktuelles Installationspaket herunterladen](assets/downloads/EHFleet_Webservice_1.3.10.0_7e0b2ca4_Installation.zip)
+[Aktuelles Installationspaket herunterladen](assets/downloads/EHFleet_Webservice_1.3.10.0_f62500cf_Installation.zip)
 
 Die Installation erfolgt über eine erhöhte PowerShell auf dem IIS-Server.
