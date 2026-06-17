@@ -14,25 +14,35 @@ Diese Anleitung richtet sich an Administratoren, die den Webservice auf einem Wi
 
 ## Download und Prüfung
 
-1. Installationspaket herunterladen: [EHFleet_Webservice_1.3.10.0_22d05f2f_Installation.zip](assets/downloads/EHFleet_Webservice_1.3.10.0_22d05f2f_Installation.zip)
-2. Optional Prüfsumme herunterladen: [EHFleet_Webservice_1.3.10.0_22d05f2f_Installation.zip.sha256](assets/downloads/EHFleet_Webservice_1.3.10.0_22d05f2f_Installation.zip.sha256)
+1. Installationspaket herunterladen: [EHFleet_Webservice_1.3.10.0_7e0b2ca4_Installation.zip](assets/downloads/EHFleet_Webservice_1.3.10.0_7e0b2ca4_Installation.zip)
+2. Optional Prüfsumme herunterladen: [EHFleet_Webservice_1.3.10.0_7e0b2ca4_Installation.zip.sha256](assets/downloads/EHFleet_Webservice_1.3.10.0_7e0b2ca4_Installation.zip.sha256)
 3. SHA256 vergleichen:
 
 ```powershell
-Get-FileHash -Algorithm SHA256 ".\EHFleet_Webservice_1.3.10.0_22d05f2f_Installation.zip"
+Get-FileHash -Algorithm SHA256 ".\EHFleet_Webservice_1.3.10.0_7e0b2ca4_Installation.zip"
 ```
 
 Erwartete SHA256:
 
 ```text
-b04a5e43e7160a11e3f8dde8912e94aba2222a10241b78e2b5b01c1b2af972e8
+b370135fa2b1dc474a9b29a3bddfb9df8b91c97029be1aec1bd12a328aafe75c
 ```
 
-## Installation mit SQL-Authentifizierung
+## Neuinstallation Schritt für Schritt
 
-1. ZIP-Datei entpacken, zum Beispiel nach `C:\Install\EHFleetWebservice`.
-2. PowerShell als Administrator starten.
-3. Installation ausführen:
+1. Wartungsfenster abstimmen und sicherstellen, dass kein alter EHFleet-Webservice unter demselben IIS-Anwendungsnamen produktiv verwendet wird.
+2. Installationspaket auf den IIS-Server kopieren, zum Beispiel nach `C:\Install\EHFleetWebservice`.
+3. ZIP-Datei vollständig entpacken.
+4. Prüfsumme der heruntergeladenen ZIP-Datei mit der oben angegebenen SHA256-Prüfsumme vergleichen.
+5. PowerShell als Administrator starten.
+6. In den entpackten Paketordner wechseln.
+7. Datenbankserver, Datenbankname und Authentifizierungsart bereitlegen.
+8. Installation mit SQL-Authentifizierung oder Windows-Authentifizierung ausführen.
+9. Nach Abschluss die angezeigte Smoke-Test-URL prüfen.
+10. In IIS kontrollieren, dass Website, Anwendung und App-Pool vorhanden sind und der App-Pool gestartet ist.
+11. Aus einem Clientnetz die ASMX-Testseite öffnen und eine fachliche Anmeldung beziehungsweise MDE-/Werkstattfunktion testen.
+
+## Neuinstallation mit SQL-Authentifizierung
 
 ```powershell
 .\Install-EHFleetWebservice.ps1 `
@@ -48,7 +58,7 @@ b04a5e43e7160a11e3f8dde8912e94aba2222a10241b78e2b5b01c1b2af972e8
   -SqlPassword "<passwort>"
 ```
 
-## Installation mit Windows-Authentifizierung
+## Neuinstallation mit Windows-Authentifizierung
 
 ```powershell
 .\Install-EHFleetWebservice.ps1 `
@@ -78,9 +88,52 @@ http://<server>:8080/ehfleet_webservice/WorkshopItems.asmx
 
 Zusätzlich sollten Anmeldung und ausgewählte MDE-/Werkstattfunktionen gegen die Produktivdatenbank geprüft werden.
 
-## Aktualisierung
+## Update Schritt für Schritt
 
-Für ein Update das neue Paket herunterladen, entpacken und das Installationsskript mit denselben Parametern erneut ausführen. Die IIS-Anwendung und der App-Pool werden wiederverwendet.
+1. Aktuelle Version, Installationspfad, IIS-Site, IIS-Anwendungsname, App-Pool und Datenbankverbindung dokumentieren.
+2. Wartungsfenster ankündigen und aktive Benutzer abmelden lassen.
+3. Sicherung des bestehenden Zielverzeichnisses erstellen, zum Beispiel `C:\Backup\EHFleetWebservice\<datum>`.
+4. Aktuelle `web.config` sichern, damit die bisherige Verbindungszeichenfolge nachvollziehbar bleibt.
+5. Neues Installationspaket herunterladen und auf den IIS-Server kopieren.
+6. SHA256-Prüfsumme mit der Downloadseite vergleichen.
+7. ZIP-Datei in einen neuen temporären Ordner entpacken.
+8. PowerShell als Administrator starten und in den entpackten Paketordner wechseln.
+9. Installationsskript mit denselben Parametern wie bei der bestehenden Installation ausführen.
+10. Das Skript aktualisiert die vorhandene IIS-Anwendung und verwendet App-Pool, Site und Zielpfad weiter.
+11. Smoke-Test auf `WorkshopItems.asmx` prüfen.
+12. Anwendung im Browser oder MDE-Client fachlich testen.
+13. Bei Problemen die Sicherung des Zielverzeichnisses zurückkopieren und das vorherige Paket erneut mit denselben Parametern installieren.
+
+Beispiel für ein Update mit SQL-Authentifizierung:
+
+```powershell
+.\Install-EHFleetWebservice.ps1 `
+  -SiteName "Default Web Site" `
+  -AppName "ehfleet_webservice" `
+  -AppPoolName "ehfleet_webservice" `
+  -Port 8080 `
+  -PhysicalPath "C:\inetpub\wwwroot\ehfleet_webservice" `
+  -PackagePath ".\ehfleet_webservice.zip" `
+  -SqlServer ".\SQL2019" `
+  -Database "EHFleet" `
+  -SqlUser "ehfleet" `
+  -SqlPassword "<passwort>"
+```
+
+Beispiel für ein Update mit Windows-Authentifizierung:
+
+```powershell
+.\Install-EHFleetWebservice.ps1 `
+  -SiteName "Default Web Site" `
+  -AppName "ehfleet_webservice" `
+  -AppPoolName "ehfleet_webservice" `
+  -Port 8080 `
+  -PhysicalPath "C:\inetpub\wwwroot\ehfleet_webservice" `
+  -PackagePath ".\ehfleet_webservice.zip" `
+  -SqlServer ".\SQL2019" `
+  -Database "EHFleet" `
+  -UseWindowsAuth
+```
 
 ## Fehlerdiagnose
 
