@@ -14,18 +14,18 @@ Diese Anleitung richtet sich an Administratoren, die den Webservice auf einem Wi
 
 ## Download und Prüfung
 
-1. Installationspaket herunterladen: [EHFleet_Webservice_1.3.10.0_7bfaa529_Installation.zip](assets/downloads/EHFleet_Webservice_1.3.10.0_7bfaa529_Installation.zip)
-2. Optional Prüfsumme herunterladen: [EHFleet_Webservice_1.3.10.0_7bfaa529_Installation.zip.sha256](assets/downloads/EHFleet_Webservice_1.3.10.0_7bfaa529_Installation.zip.sha256)
+1. Installationspaket herunterladen: [EHFleet_Webservice_1.3.10.0_22d05f2f_Installation.zip](assets/downloads/EHFleet_Webservice_1.3.10.0_22d05f2f_Installation.zip)
+2. Optional Prüfsumme herunterladen: [EHFleet_Webservice_1.3.10.0_22d05f2f_Installation.zip.sha256](assets/downloads/EHFleet_Webservice_1.3.10.0_22d05f2f_Installation.zip.sha256)
 3. SHA256 vergleichen:
 
 ```powershell
-Get-FileHash -Algorithm SHA256 ".\EHFleet_Webservice_1.3.10.0_7bfaa529_Installation.zip"
+Get-FileHash -Algorithm SHA256 ".\EHFleet_Webservice_1.3.10.0_22d05f2f_Installation.zip"
 ```
 
 Erwartete SHA256:
 
 ```text
-ec0fd80870f189532085d6c6fea667f76cddc25d3d5b1f80df931e123638fd2b
+b04a5e43e7160a11e3f8dde8912e94aba2222a10241b78e2b5b01c1b2af972e8
 ```
 
 ## Installation mit SQL-Authentifizierung

@@ -2,19 +2,19 @@
 
 ## Aktuelles Installationspaket
 
-[EHFleet Webservice 1.3.10.0 herunterladen](assets/downloads/EHFleet_Webservice_1.3.10.0_7bfaa529_Installation.zip)
+[EHFleet Webservice 1.3.10.0 herunterladen](assets/downloads/EHFleet_Webservice_1.3.10.0_22d05f2f_Installation.zip)
 
 | Feld | Wert |
 | --- | --- |
-| Datei | `EHFleet_Webservice_1.3.10.0_7bfaa529_Installation.zip` |
+| Datei | `EHFleet_Webservice_1.3.10.0_22d05f2f_Installation.zip` |
 | Version | `1.3.10.0` |
-| Commit | [7bfaa529](https://github.com/harzmann/ehfleet_webservice/commit/7bfaa529f5b7ad243e2c45ff2d7fbef0991e01b8) |
-| SHA256 | `ec0fd80870f189532085d6c6fea667f76cddc25d3d5b1f80df931e123638fd2b` |
+| Commit | [22d05f2f](https://github.com/harzmann/ehfleet_webservice/commit/22d05f2f81b341b56fb37015227add8007a39c92) |
+| SHA256 | `b04a5e43e7160a11e3f8dde8912e94aba2222a10241b78e2b5b01c1b2af972e8` |
 
 Prüfsumme nach dem Download prüfen:
 
 ```powershell
-Get-FileHash -Algorithm SHA256 ".\EHFleet_Webservice_1.3.10.0_7bfaa529_Installation.zip"
+Get-FileHash -Algorithm SHA256 ".\EHFleet_Webservice_1.3.10.0_22d05f2f_Installation.zip"
 ```
 
 Das Paket enthält:
