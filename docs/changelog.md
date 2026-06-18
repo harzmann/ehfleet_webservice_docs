@@ -14,6 +14,7 @@ Das Format orientiert sich an Keep a Changelog. Die Versionierung folgt der vorh
 
 ### Geändert
 
+- Werkstattaufträge schreiben nicht verwendete `KFZNr`-/`KundenNr`-Referenzen jetzt als Datenbank-`NULL`; Fahrzeug- und Kundenaufträge bleiben gegenseitig exklusiv.
 - README und Änderungsprotokoll wurden auf deutsche Sprache mit Umlauten umgestellt.
 - Der Deployment-Workflow veröffentlicht die Kundendokumentation zusätzlich zum bestehenden IIS-Deployment.
 

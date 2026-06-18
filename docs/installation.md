@@ -16,18 +16,18 @@ Der Installer unterstützt ausschließlich SQL-Authentifizierung für die Datenb
 
 ## Download und Prüfung
 
-1. Installationspaket herunterladen: [EHFleet_Webservice_1.3.10.0_f62500cf_Installation.zip](assets/downloads/EHFleet_Webservice_1.3.10.0_f62500cf_Installation.zip)
-2. Optional Prüfsumme herunterladen: [EHFleet_Webservice_1.3.10.0_f62500cf_Installation.zip.sha256](assets/downloads/EHFleet_Webservice_1.3.10.0_f62500cf_Installation.zip.sha256)
+1. Installationspaket herunterladen: [EHFleet_Webservice_1.3.10.0_de528075_Installation.zip](assets/downloads/EHFleet_Webservice_1.3.10.0_de528075_Installation.zip)
+2. Optional Prüfsumme herunterladen: [EHFleet_Webservice_1.3.10.0_de528075_Installation.zip.sha256](assets/downloads/EHFleet_Webservice_1.3.10.0_de528075_Installation.zip.sha256)
 3. SHA256 vergleichen:
 
 ```powershell
-Get-FileHash -Algorithm SHA256 ".\EHFleet_Webservice_1.3.10.0_f62500cf_Installation.zip"
+Get-FileHash -Algorithm SHA256 ".\EHFleet_Webservice_1.3.10.0_de528075_Installation.zip"
 ```
 
 Erwartete SHA256:
 
 ```text
-c2be324cf170a70ebaebd62ad101785ed2abe358b3c943746478d49e6a35af47
+10db3a81db820fbf806924e75a2b4f92165906fde6008cf88ddce31438f47c1d
 ```
 
 ## Neuinstallation Schritt für Schritt
